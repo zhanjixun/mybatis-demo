@@ -23,7 +23,7 @@
     </environments>
 
     <mappers>
-        <package name="com/zhanjixun/mapper"/>
+        <package name="com/github/zhanjixun/mapper"/>
     </mappers>
 
 </configuration>
