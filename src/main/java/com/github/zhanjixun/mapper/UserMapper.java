@@ -16,9 +16,9 @@ public interface UserMapper {
     User selectByName(@Param("name") String name);
 
     @Insert("INSERT INTO user(name,age,sex) VALUES (#{user.name},#{user.age},#{user.sex})")
-    int insertUser(User user);
+    int insertUser(@Param("user") User user);
 
     @Update("UPDATE user SET age=#{age} WHERE id=#{id}")
-    int updateUser(int age, int id);
+    int updateUser(@Param("age") int age, @Param("id") int id);
 
 }

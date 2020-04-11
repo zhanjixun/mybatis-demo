@@ -18,15 +18,18 @@ import java.io.InputStream;
  */
 public class App {
 
-	public static void main(String[] args) throws IOException {
-		InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
-		SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+    public static void main(String[] args) throws IOException {
+        InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
+        SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
 
-		SqlSession session = sqlSessionFactory.openSession();
-		UserMapper mapper = session.getMapper(UserMapper.class);
-		System.out.println(mapper.selectById(1));
+        SqlSession session = sqlSessionFactory.openSession();
+        UserMapper mapper = session.getMapper(UserMapper.class);
 
-		System.out.println(mapper.selectByName("张三"));
-	}
+        System.out.println(mapper.selectById(1));
+        System.out.println(mapper.selectByName("张三"));
+
+        System.out.println(mapper.updateUser(20, 1));
+
+    }
 
 }
