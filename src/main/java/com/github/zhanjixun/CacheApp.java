@@ -10,13 +10,10 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * 参考https://mybatis.org/mybatis-3/zh/getting-started.html
- * 创建的mybatis使用示例项目
- * 调试mybatis源码用例
- *
- * @author zhanjixun
+ * @author :zhanjixun
+ * @date : 2020/04/11 23:59
  */
-public class App {
+public class CacheApp {
 
     public static void main(String[] args) throws IOException {
         InputStream inputStream = Resources.getResourceAsStream("mybatis-config.xml");
@@ -24,8 +21,10 @@ public class App {
 
         SqlSession session = sqlSessionFactory.openSession();
         UserMapper mapper = session.getMapper(UserMapper.class);
-
+        //一级缓存SqlSession级别 生效
         System.out.println(mapper.selectById(1));
-    }
+        System.out.println(mapper.selectById(1));
 
+        
+    }
 }
